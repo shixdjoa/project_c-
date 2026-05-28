@@ -79,8 +79,8 @@ print("График 4 сохранён: avg_by_diet.png")
 # =====================================================
 plt.figure(figsize=(12, 10))
 
-numeric_cols = ['часы учебы', 'соцсети', 'фильмы', 'посещаемость',
-                'сон', 'тренировки', 'состояние здоровья', 'экзаменационный балл']
+numeric_cols = ['study_hours', 'social_media', 'netflix', 'attendance',
+                'sleep_hours', 'exercise', 'mental_health', 'exam_score']
 corr_matrix = df[numeric_cols].corr()
 
 im = plt.imshow(corr_matrix, cmap='coolwarm', vmin=-1, vmax=1)
@@ -122,7 +122,7 @@ for group, data in study_groups:
             print(f"  {group.left}-{group.right} часа: {data['exam_score'].mean():.2f} (n={len(data)})")
 
 print("\n--- Средний балл по качеству питания ---")
-diet_names = {1: "Плохое", 2: "Среднее", 3: "Хорошее"}
+diet_names = {1: "Плохое", 2: "Среднее", 3: "Good (хорошее)"}
 for code, name in diet_names.items():
     data = df[df['diet_code'] == code]
     if len(data) > 0:
